@@ -1,0 +1,28 @@
+yarn add prettier prettier-plugin-tailwindcss@0.6.11 -D
+yarn add prettier@3.5.3 -D
+
+ - Criar um .prettierrc.json e adicionar
+  {
+    "plugins":["prettier-plugins-tailwindcss"]
+  }
+
+------------------------------------------------------------------------------------------------
+yarn add eslint-plugin-simple-import-sort@12.1.1 -D
+
+ - Para utilizar cria um .vscode na raiz do projeto, arquivo settings.json com o seguinte conteudo:
+{
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto",
+    }
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}
