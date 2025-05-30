@@ -64,6 +64,15 @@ Configura Banco de Dados Neon PostgreeSql no Neon
   - Apos rodar o comando para aplicar o schema ao banco de dados 
       npx drizzle-kit push
 
+  - Para utilizar o utilitario de visualização do BD 
+      npx drizzle-kit studio
+
+
+Configurando conexão com bando de dados
+-----------------------------------------------------------------------------------------------
+Adicionar lib de componentes ShadcnUI
+    npx shadcn@2.5.0 init
+
 
 
 
