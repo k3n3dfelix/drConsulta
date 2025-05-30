@@ -1,0 +1,23 @@
+Requisitos Funcionais
+  .Autenticação
+    Usuário pode ter mais várias clinicas
+  .Clinica de conseguir gerenciar médicos(CRUD)
+    .Disponibilidade, Preço, Consulta
+  .Clinica deve conseguir gerenciar pacientes desses médicos(CRUD)
+  .Clinica deve conseguir realizar agendamentos de tal médico para tal pacientes
+  .Teremos plano de assinatura
+
+Tabela Principais
+  .User
+  .Clinic
+  .Doctor
+  .Patient
+  .Appointments
+
+  -Relacionamentos
+    .User N:N Clinic
+    .Clinic 1:N Doctor
+    .Clinic 1:N Patient
+    .Clinic 1:N Appointments
+    .Patient 1:N Appointments 
+    .Doctor 1:N Appointments

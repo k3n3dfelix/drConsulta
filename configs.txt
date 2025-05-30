@@ -1,3 +1,5 @@
+Configuração Inicial de Formatador Padrão com Prettier
+-----------------------------------------------------------------------------------------------
 yarn add prettier prettier-plugin-tailwindcss@0.6.11 -D
 yarn add prettier@3.5.3 -D
 
@@ -6,6 +8,8 @@ yarn add prettier@3.5.3 -D
     "plugins":["prettier-plugins-tailwindcss"]
   }
 
+
+Configurando Plugin de Padrão de Imports Eslint
 ------------------------------------------------------------------------------------------------
 yarn add eslint-plugin-simple-import-sort@12.1.1 -D
 
@@ -26,3 +30,41 @@ yarn add eslint-plugin-simple-import-sort@12.1.1 -D
     "source.fixAll.eslint": "explicit"
   }
 }
+
+Configurando conexão com bando de dados
+-----------------------------------------------------------------------------------------------
+yarn add drizzle-orm@0.43.1 pg@8.15.6
+yarn add drizzle-kit@0.31.1 -D
+
+Configura Banco de Dados Neon PostgreeSql no Neon
+  -Cria um arquivo .env na raiz
+
+      DATABASE_URL="dados de conexão com o banco de dados"
+
+  - Cria a pasta db em src e arquivo index.ts com os dados abaixo
+
+      import 'dotenv/config';
+      import { drizzle } from 'drizzle-orm/node-postgres';
+      const db = drizzle(process.env.DATABASE_URL!);
+
+  - Cria na raiz do Projeto drizzle.config.ts
+      
+      import 'dotenv/config';
+      import { defineConfig } from 'drizzle-kit';
+      export default defineConfig({
+        out: './drizzle',
+        schema: './src/db/schema.ts',
+        dialect: 'postgresql',
+        dbCredentials: {
+          url: process.env.DATABASE_URL!,
+        },
+      });
+  
+  - Em db cria o arquivo schema.ts e começa a criar as tabelas
+  - Apos rodar o comando para aplicar o schema ao banco de dados 
+      npx drizzle-kit push
+
+
+
+
+
