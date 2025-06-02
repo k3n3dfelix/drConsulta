@@ -72,6 +72,7 @@ Configurando conexão com bando de dados
 -----------------------------------------------------------------------------------------------
 Adicionar lib de componentes ShadcnUI
     npx shadcn@2.5.0 init
+    npx shadcn@2.6.0 add form
 
 
 
