@@ -6,7 +6,19 @@ import { db } from "../db"; // Adjust the import path as necessary
  
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
-    provider: "pg", // or "pg" or "mysql"
+    provider: "pg",
+    usePlural: true, 
   }), 
-  //... the rest of your config
+  user: {
+    modelName: "usersTable"
+  },
+  session: {
+    modelName: "sessionsTable"
+  },
+  account: {
+    modelName: "accountsTable"
+  },
+  verification: {
+    modelName: "verificationsTable"
+  },
 });
