@@ -1,3 +1,5 @@
+- Criar Projeto com  Next na versão 15.3.2
+
 Configuração Inicial de Formatador Padrão com Prettier
 -----------------------------------------------------------------------------------------------
 yarn add prettier prettier-plugin-tailwindcss@0.6.11 -D
@@ -74,6 +76,35 @@ Adicionar lib de componentes ShadcnUI
     npx shadcn@2.5.0 init
     npx shadcn@2.6.0 add form
 
+Implementando Login com Lib BetterAuth
+-----------------------------------------------------------------------------------------------
+  yarn add better-auth
+  npm install @better-auth/cli@1.2.8 @babel/core
+  yarn add dotenv@16.5.0
+
+  Criar as variaveis de ambiente em .env
+    BETTER_AUTH_SECRET=
+    BETTER_AUTH_URL=http://localhost:3000 #Base URL of your app
+  
+  Criar arquivo auth.ts em /lib
+      
+    import { betterAuth } from "better-auth";
+    import { drizzleAdapter } from "better-auth/adapters/drizzle";
+
+    import { db } from "../db"; // Adjust the import path as necessary
+    
+    export const auth = betterAuth({
+      database: drizzleAdapter(db, {
+        provider: "pg", // or "pg" or "mysql"
+      }), 
+      //... the rest of your config
+    });
+
+  Gerar Schema com BetterAuth
+    npx @better-auth/cli@latest generate
+
+  Copia o schema gerado para o esquema do seu banco, faz alterações necessarias e roda o push do drizzle
+    npx drizzle-kit push
 
 
 
