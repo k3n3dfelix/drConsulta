@@ -75,6 +75,7 @@ Configurando conexão com bando de dados
 Adicionar lib de componentes ShadcnUI
     npx shadcn@2.5.0 init
     npx shadcn@2.6.0 add form
+    npx shadcn@2.6.0 add sonner
 
 Implementando Login com Lib BetterAuth
 -----------------------------------------------------------------------------------------------
@@ -105,6 +106,7 @@ Implementando Login com Lib BetterAuth
 
   Copia o schema gerado para o esquema do seu banco, faz alterações necessarias e roda o push do drizzle
     npx drizzle-kit push
+
 
 
 
