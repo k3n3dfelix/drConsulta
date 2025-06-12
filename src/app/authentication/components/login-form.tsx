@@ -36,7 +36,7 @@ const LoginForm = () => {
     })
   
     async function onSubmit(values: z.infer<typeof registerSchema>) {
-      console.log('values: ', values);
+     
        await authClient.signIn.email({
             email: values.email,
             password: values.password,
