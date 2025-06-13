@@ -2,10 +2,9 @@
 import { CalendarDays, LayoutDashboard, LogOut, Stethoscope, UserRound } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import {
   Sidebar,
@@ -50,7 +49,7 @@ export function AppSidebar() {
   
   const router = useRouter();
   const session = authClient.useSession();
-
+  const pathName = usePathname();
 
 
   const handleSignOut = async () => {
@@ -75,7 +74,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild isActive={pathName === item.url}>
                     <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
@@ -94,7 +93,7 @@ export function AppSidebar() {
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton size="lg">
                     <Avatar >
-                      <AvatarFallback>F</AvatarFallback>
+                      <AvatarFallback>A</AvatarFallback>
                     </Avatar>
                     <div>
                       <p className="text-sm">{session.data?.user.clinic?.name}</p>
