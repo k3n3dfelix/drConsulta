@@ -1,8 +1,18 @@
+
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+
+import { AppSidebar } from "./components/app-sidebar";
+
 const ProtectedLayout = ({children}: { children: React.ReactNode}) => {
   return (
     <>
-      <h1>Protected Layout</h1>
-      {children}
+      <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        {children}
+      </main>
+    </SidebarProvider>
     </>
   );
 }

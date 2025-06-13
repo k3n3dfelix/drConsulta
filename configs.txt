@@ -78,6 +78,7 @@ Adicionar lib de componentes ShadcnUI
     npx shadcn@2.6.0 add sonner
     npx shadcn@2.6.0 add dialog
     npx shadcn@2.6.0 add sidebar
+    npx shadcn@2.6.0 add dropdown-menu
 
 Implementando Login com Lib BetterAuth
 -----------------------------------------------------------------------------------------------
