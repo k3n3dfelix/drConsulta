@@ -96,7 +96,7 @@ export function AppSidebar() {
                       <AvatarFallback>A</AvatarFallback>
                     </Avatar>
                     <div>
-                      <p className="text-sm">{session.data?.user.clinic?.name}</p>
+                      <p className="text-sm">{session.data?.user?.clinic?.name}</p>
                       <p className="text-sm text-muted-foreground">{session.data?.user.clinic?.email}</p>
                     </div>
                   </SidebarMenuButton>
