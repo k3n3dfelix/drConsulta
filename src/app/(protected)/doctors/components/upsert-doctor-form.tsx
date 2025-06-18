@@ -1,6 +1,7 @@
 "use client"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { NumericFormat } from "react-number-format";
 import z from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,7 @@ const formSchema = z.object({
     specialty: z.string().trim().min(1, {
       message: "Especialidade é obrigatória.",
     }),
-    appointmentPrice: z.string().min(1, {
+    appointmentPrice: z.number().min(1, {
       message: "Preço da consulta é obrigatório.",
     }),
     availableFromWeekDay: z.string(),
@@ -113,11 +114,50 @@ const UpsertDoctorForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Preço da Consulta</FormLabel>
-                  <FormControl>
-                    <Input 
-                      {...field} 
-                    />
-                  </FormControl>
+                 <NumericFormat
+                    value={field.value}
+                    customInput={Input}
+                    thousandSeparator="."
+                    decimalSeparator=","
+                    allowNegative={false}
+                    allowLeadingZeros={false}
+                    prefix="R$ "
+                    decimalScale={2}
+                    fixedDecimalScale
+                    onValueChange={(value) => {
+                      field.onChange(value.floatValue);
+                    }}
+                    placeholder="R$ 0,00"
+                  />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="availableFromWeekDay"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Dia inicial de disponibilidade</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value?.toString()}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Selecione um dia" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="0">Domingo</SelectItem>
+                      <SelectItem value="1">Segunda</SelectItem>
+                      <SelectItem value="2">Terça</SelectItem>
+                      <SelectItem value="3">Quarta</SelectItem>
+                      <SelectItem value="4">Quinta</SelectItem>
+                      <SelectItem value="5">Sexta</SelectItem>
+                      <SelectItem value="6">Sábado</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}

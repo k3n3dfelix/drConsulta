@@ -84,6 +84,7 @@ Adicionar lib de componentes ShadcnUI
 Adição de libs Esternas
 -----------------------------------------------------------------------------------------------
   yarn add react-number-format@5.4.4
+  yarn add next-safe-action@7.10.8
 
 Implementando Login com Lib BetterAuth
 -----------------------------------------------------------------------------------------------
