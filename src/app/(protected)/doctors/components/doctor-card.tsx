@@ -51,10 +51,10 @@ const DoctorCard = ({ doctor}: DoctorCardProps) => {
         <CardFooter >
           <Dialog>
             <DialogTrigger asChild>
-              <>
+              <div>
               <Button className="w-full">Ver Detalhes</Button>
               <UpsertDoctorForm />
-              </>
+              </div>
             </DialogTrigger>
           </Dialog>
         </CardFooter>
