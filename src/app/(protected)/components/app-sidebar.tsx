@@ -39,7 +39,7 @@ const items = [
   },
   {
     title: "Pacientes",
-    url: "/pacients",
+    url: "/patients",
     icon: UserRound,
   },
 ]

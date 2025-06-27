@@ -82,12 +82,17 @@ Adicionar lib de componentes ShadcnUI
     npx shadcn@2.6.0 add select
     npx shadcn@2.6.0 add separator
     npx shadcn@2.6.0 add badge
+    npx shadcn@2.6.0 add table
+    npx shadcn@2.6.0 add dropdown-menu
 
 Adição de libs Esternas
 -----------------------------------------------------------------------------------------------
   yarn add react-number-format@5.4.4
   yarn add next-safe-action@7.10.8
   yarn add dayjs
+  yarn add @tanstack/react-table@8.21.3
+
+  npm install -g npm-check-updates@18.0.1
 
 Implementando Login com Lib BetterAuth
 -----------------------------------------------------------------------------------------------
