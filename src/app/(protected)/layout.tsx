@@ -8,7 +8,7 @@ const ProtectedLayout = ({children}: { children: React.ReactNode}) => {
     <>
       <SidebarProvider>
       <AppSidebar />
-      <ShadcnMenu />
+      {/* <ShadcnMenu /> */}
       <main className="w-full">
         <SidebarTrigger />
         {children}

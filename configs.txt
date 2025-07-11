@@ -84,6 +84,7 @@ Adicionar lib de componentes ShadcnUI
     npx shadcn@2.6.0 add badge
     npx shadcn@2.6.0 add table
     npx shadcn@2.6.0 add dropdown-menu
+    npx shadcn@2.6.0 add popover calendar
 
 Adição de libs Esternas
 -----------------------------------------------------------------------------------------------
@@ -123,6 +124,34 @@ Implementando Login com Lib BetterAuth
 
   Copia o schema gerado para o esquema do seu banco, faz alterações necessarias e roda o push do drizzle
     npx drizzle-kit push
+
+-Prompts
+
+  Agendamentos 
+  Crie uma pagina de agendamentos. Essa pagina deve ter um botão de "Novo Agendamento". Esse botão deve abrir um Dialog com um formuláriuo de criação de um agendamento. 
+
+Esse fomulário terá os seguintes campos: 
+- Select de pacientes: recupere os pacientes do banco de dados na página de agendamentos, que vai ser um server component
+- Select de médicos: recupere os médicos do banco de dados na página de agendamentos, que vai ser um server component e passe-os como prop para o formulario 
+- Valor da consulta: deve ser um input monetário formatado e só deve ser habilitado caso o medico ja tenha sido selecionado e o valor padrão dele deve ser o valor da consulta do médico selecionado(campo "appintmentPriceInCents" no banco de dados)
+- Data: só estara habilitado ao ser selecionado paciente e medico e use o componente : <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          data-empty={!date}
+          className="data-[empty=true]:text-muted-foreground w-[280px] justify-start text-left font-normal"
+        >
+          <CalendarIcon />
+          {date ? format(date, "PPP") : <span>Pick a date</span>}
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0">
+        <Calendar mode="single" selected={date} onSelect={setDate} />
+      </PopoverContent>
+    </Popover>
+- Select de Horarios: só deixe habilitado se o paciente e medico tiver sido selecionado e deixe vazio por enquanto
+Não faça a listagem de agendamentos por enquanto somente a criação
+@general.mdc 
 
 
 
